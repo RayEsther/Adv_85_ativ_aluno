@@ -1,34 +1,27 @@
 //1. Obtém a referência do canvas:
-canvas = document.getElementById('myCanvas');
-ctx = canvas.getContext("2d");
+
 
 
  // 2. Define width & height da imagem do rover:
-roverWidth = 100;
-roverHeight = 90;
+
    
    // 3. Posiciona o rover no canvas:
-roverX = 10;
-roverY = 10;
+
 
 //Adiciona a imagem de fundo de Marte e a imagem do rover:
-backgroundImage = "mars.jpg";
 
-roverImage = "rover.png";
+
+
 //Código da função add:
 
 function add() {
-	backgroundImgTag = new Image(); //definindo uma variável com uma nova imagem
-	backgroundImgTag.onload = uploadBackground; // ajustando uma função, ao carregar essa variável
-	backgroundImgTag.src = backgroundImage;   // carregar a imagem
 
-	roverImgTag = new Image(); //definindo uma variável com uma nova imagem
-	roverImgTag.onload = uploadrover; // ajustando uma função, ao carregar essa variável
-	roverImgTag.src = roverImage;   // carregar a imagem
-}
+
+
+	
 //5. Adicione a função uploadBackground():
 function uploadBackground() {
-	ctx.drawImage(backgroundImgTag, 0, 0, canvas.width, canvas.height);
+	
 }
 window.addEventListener("keydown", myKeyDown);
 
@@ -37,24 +30,24 @@ function myKeyDown(e)
 {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
-		if(keyPressed == '38')
+		if(keyPressed == '  ')
 		{
 			up();
-			console.log("cima");
+			console.log("     ");
 		}
-		if(keyPressed == '40')
+		if(keyPressed == '   ')
 		{
 			down();
-			console.log("baixo");
+			console.log("   ");
 		}
-		if(keyPressed == '37')
+		if(keyPressed == '   ')
 		{
-			left();
+			       ();
 			console.log("esquerda");
 		}
-		if(keyPressed == '39')
+		if(       == '   ')
 		{
-			right();
+			      ();
 			console.log("direita");
 		}
 }
