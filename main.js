@@ -1,43 +1,39 @@
+//1. Obtém a referência do canvas:
 canvas = document.getElementById('myCanvas');
 ctx = canvas.getContext("2d");
 
-nasaMarsImagesArray = ["nasa_image_1.jpg","nasa_image_2.jpeg", "nasa_image_3.jpg","nasa_image_4.jpg"];
 
-randomNumber = Math.floor(Math.random() * 4);//isso irá gerar um número entre 0 e 1.
-// 4 imagens no array, queremos números aleatórios entre 0 e 3.*0 porque os arrays começam em 0
-console.log(randomNumber);
-roverWidth = 100;       
+ // 2. Define width & height da imagem do rover:
+roverWidth = 100;
 roverHeight = 90;
-
-backgroundImage = nasaMarsImagesArray[randomNumber];
-console.log("backgroundImage = " + backgroundImage);
-roverImage = "rover.png";
-
+   
+   // 3. Posiciona o rover no canvas:
 roverX = 10;
 roverY = 10;
 
+//Adiciona a imagem de fundo de Marte e a imagem do rover:
+backgroundImage = "mars.jpg";
+
+roverImage = "rover.png";
+//Código da função add:
+
 function add() {
 	backgroundImgTag = new Image(); //definindo uma variável com uma nova imagem
-	backgroundImgTag.onload = uploadBackground; // ajustando uma função, onloading essa variável
-	backgroundImgTag.src = backgroundImage;   // carregue a imagem
+	backgroundImgTag.onload = uploadBackground; // ajustando uma função, ao carregar essa variável
+	backgroundImgTag.src = backgroundImage;   // carregar a imagem
 
 	roverImgTag = new Image(); //definindo uma variável com uma nova imagem
-	roverImgTag.onload = uploadrover; // ajustando uma função, onloading essa variável
-	roverImgTag.src = roverImage;   // carregue a imagem
+	roverImgTag.onload = uploadrover; // ajustando uma função, ao carregar essa variável
+	roverImgTag.src = roverImage;   // carregar a imagem
 }
-
+//5. Adicione a função uploadBackground():
 function uploadBackground() {
 	ctx.drawImage(backgroundImgTag, 0, 0, canvas.width, canvas.height);
 }
+window.addEventListener("keydown", myKeyDown);
 
-function uploadrover() {
-	ctx.drawImage(roverImgTag, roverX, roverY, roverWidth, roverHeight);
-}
-
-
-window.addEventListener("keydown", my_keydown);
-
-function my_keydown(e)
+//Adiciona uma função chamada myKeydown() :
+function myKeyDown(e)
 {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
@@ -63,38 +59,13 @@ function my_keydown(e)
 		}
 }
 
-function up()
-{
-	if(roverY >=0)
-	{
-		roverY = roverY - 10;
-		console.log("Quando a seta para cima é pressionada,  x = " + roverX + " | y = " +roverY);
-		 uploadBackground();//atualizando a posição do rover
-		 uploadrover();
-		 //importante Se chamarmos apenas uploadRover(), apenas o rover será exibido no
-    // canvas e o resto ficará invisível. Portanto, precisamos chamar todas as funções de upload aqui
-	}
-}
-function down()
-{
-	if(roverY <=500)
-	{
-		roverY =roverY+ 10;
-		console.log("Quando a seta para baixo é pressionada,  x = " + roverX + " | y = " +roverY);
-		uploadBackground();
-		 uploadrover();
-	}
-}
 
-function right()
-{
-	if(roverX <= 700)
-	{
-		roverX =roverX + 10;
-		console.log("Quando a seta para a direita é pressionada,  x = " + roverX + " | y = " +roverY);
-		uploadBackground();
-		uploadrover();
-   }
+
+
+
+
+
+
 }
 //Atividade Adicional
 function left()
